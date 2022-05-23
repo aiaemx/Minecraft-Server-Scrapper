@@ -3,6 +3,9 @@ import random
 import requests
 from mcstatus import JavaServer
 
+#post webhook here
+url = ""
+
 logo = """
 
   /$$$$$$                      /$$
@@ -28,7 +31,6 @@ def task():
         try:
             server = JavaServer.lookup(str(ip))
             status = server.status()
-            url = "https://discord.com/api/webhooks/977980292767830036/9g1r4t-YXMTphz07RnBnqOwfpjslk74mio6Dq9eozMGp_eZL6hNnlE6Z5SGoXnC1eQvP"
             data = {"content" : "Server found at " + str(ip) + " nns online: " + str(status.players.online) + ". server found by " + str(name)}
             result = requests.post(url, json = data)
             with open("servers.txt","a") as file:
