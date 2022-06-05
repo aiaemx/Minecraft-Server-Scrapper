@@ -16,11 +16,11 @@ if len(url) < 5:
 
 logo = """
 
-  /$$$$$$                      /$$$$$$$              /$$    
- /$$__  $$                    | $$__  $$            | $$    
-| $$  \ $$  /$$$$$$$  /$$$$$$ | $$  \ $$  /$$$$$$  /$$$$$$  
-| $$$$$$$$ /$$_____/ /$$__  $$| $$$$$$$  /$$__  $$|_  $$_/  
-| $$__  $$| $$      | $$$$$$$$| $$__  $$| $$  \ $$  | $$    
+  /$$$$$$                      /$$$$$$$              /$$
+ /$$__  $$                    | $$__  $$            | $$
+| $$  \ $$  /$$$$$$$  /$$$$$$ | $$  \ $$  /$$$$$$  /$$$$$$
+| $$$$$$$$ /$$_____/ /$$__  $$| $$$$$$$  /$$__  $$|_  $$_/
+| $$__  $$| $$      | $$$$$$$$| $$__  $$| $$  \ $$  | $$
 | $$  | $$| $$      | $$_____/| $$  \ $$| $$  | $$  | $$ /$$
 | $$  | $$|  $$$$$$$|  $$$$$$$| $$$$$$$/|  $$$$$$/  |  $$$$/
 |__/  |__/ \_______/ \_______/|_______/  \______/    \___/
@@ -39,7 +39,7 @@ def task():
             server = JavaServer.lookup(str(ip))
             status = server.status()
             print("Server Found!\nIP Address & Port: "+str(ip)+"\nPlayers Online: "+str(status.players.online))
-            data = {"content" : "**Server Found!**\n**IP Address & Port:** "+str(ip)+"\n**Players Online:** "+str(status.players.online)}
+            data = {"content" : "```diff\n- Server Found!\n- IP: "+str(ip)+"\n- MOTD: "+str(status.description)+"\n- Version: "+str(status.version.name)+"\n- Player Count: "+ str(status.players.online)+"/"+str(status.players.max)+"\n- Players Online: NOT WORKING ATM```"}
             result = requests.post(url, json = data)
             with open("servers.txt","a") as file:
                 file.write(str(ip) + "\n")
