@@ -1,4 +1,4 @@
-# AceBot
+# Minecraft Server Scrapper
 A simple python script that finds random minecraft servers by testing millions of random ips.
 
 *It might slow down your computer cuz of the high thread count.*
